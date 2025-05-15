@@ -21,6 +21,16 @@ function M.setup(opts)
     },
   })
 
+  M.set(opts.zt, {
+    mode = {"n", "v"},
+    lhs = "zt",
+    rhs = core.align_top,
+    opts = {
+      desc = "Align cursor at the top of screen",
+      silent = true,
+    },
+  })
+
 end
 
 return M
