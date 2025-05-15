@@ -1,6 +1,15 @@
-local default_config = {}
+local default_keymap = {
+  zz = true,
+}
+
+local function validate_keymap(keymap)
+  vim.validate("keymap.zz", keymap.zz, "boolean")
+end
+
+local default_config = { keymap = default_keymap }
 
 local function validate_config(config)
+  validate_keymap(config.keymap)
 end
 
 local M = {}
