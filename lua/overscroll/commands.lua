@@ -14,6 +14,11 @@ function M.setup()
     force = true,
   })
 
+  vim.api.nvim_create_user_command("OScrollBottom", core.align_bottom, {
+    desc = "Align cursor at the bottom of screen",
+    force = true,
+  })
+
 end
 
 return M
