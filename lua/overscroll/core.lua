@@ -31,4 +31,10 @@ function M.align_center()
   scroll(delta)
 end
 
+function M.align_top()
+  local delta = 1 - vim.fn.winline()
+  delta = delta + vim.opt.scrolloff:get() - 1
+  scroll(delta)
+end
+
 return M
