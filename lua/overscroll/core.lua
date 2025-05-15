@@ -37,4 +37,11 @@ function M.align_top()
   scroll(delta)
 end
 
+function M.align_bottom()
+  local window_height = vim.api.nvim_win_get_height(0)
+  local delta = window_height + 1 - vim.fn.winline()
+  delta = delta - vim.opt.scrolloff:get() - 1
+  scroll(delta)
+end
+
 return M
