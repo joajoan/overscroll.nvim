@@ -1,4 +1,5 @@
 local ns_id = vim.api.nvim_create_namespace("overscroll")
+local ex_id = 1
 
 local function scroll(delta)
   if delta ~= 0 then
@@ -26,9 +27,19 @@ function M.draw()
     virt_lines[i] = { { "", "NonText" } }
   end
   vim.api.nvim_buf_set_extmark(0, ns_id, 0, 0, {
+    id = ex_id,
     virt_lines = virt_lines,
     virt_lines_above = true,
   })
+end
+
+function M.redraw()
+  local row = vim.api.nvim_buf_get_extmark_by_id(0, ns_id, ex_id, {})[1]
+  if row and row ~= 0 then
+    M.draw()
+    local delta = M.state.line - vim.fn.winline()
+    scroll(delta)
+  end
 end
 
 function M.align_center()
