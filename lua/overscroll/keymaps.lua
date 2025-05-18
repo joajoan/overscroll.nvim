@@ -31,6 +31,16 @@ function M.setup(opts)
     },
   })
 
+  M.set(opts.zb, {
+    mode = {"n", "v"},
+    lhs = "zb",
+    rhs = core.align_bottom,
+    opts = {
+      desc = "Align cursor at the bottom of screen",
+      silent = true,
+    },
+  })
+
 end
 
 return M

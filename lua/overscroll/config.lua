@@ -1,11 +1,13 @@
 local default_keymap = {
   zz = true,
   zt = true,
+  zb = true,
 }
 
 local function validate_keymap(keymap)
   vim.validate("keymap.zz", keymap.zz, "boolean")
   vim.validate("keymap.zt", keymap.zt, "boolean")
+  vim.validate("keymap.zb", keymap.zb, "boolean")
 end
 
 local default_config = { keymap = default_keymap }
