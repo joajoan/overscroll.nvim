@@ -41,6 +41,16 @@ function M.setup(opts)
     },
   })
 
+  M.set(opts.O, {
+    mode = "n",
+    lhs = "O",
+    rhs = core.insert_above,
+    opts = {
+      desc = "Add line above current and enter insert mode",
+      silent = false,
+    },
+  })
+
 end
 
 return M

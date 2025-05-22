@@ -61,4 +61,10 @@ function M.align_bottom()
   scroll(delta)
 end
 
+function M.insert_above()
+  M.state.update()
+  vim.cmd("normal! O")
+  M.redraw()
+end
+
 return M
