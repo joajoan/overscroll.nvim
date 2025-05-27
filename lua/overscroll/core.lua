@@ -10,7 +10,13 @@ local function scroll(delta)
   end
 end
 
-local M = {}
+local state = { line = vim.fn.winline() }
+
+function state.update()
+  state.line = vim.fn.winline()
+end
+
+local M = { state = state }
 
 function M.draw()
   vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1)
