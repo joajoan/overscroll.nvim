@@ -12,6 +12,12 @@ function M.setup()
     group = group_id,
   })
 
+  vim.api.nvim_create_autocmd("CmdlineLeave", {
+    callback = core.state.update,
+    desc = "Update the internal plugin state",
+    group = group_id,
+  })
+
   vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
     callback = core.redraw,
     desc = "Redraw virtual lines above the current buffer",
